@@ -20,6 +20,7 @@ namespace NoAutocar.Views
 
         void BuildTabs() {
             AddTab(new FindTab());
+            AddTab(new LineEditorTab());
         }
 
         void AddTab(ITabable tabable) {

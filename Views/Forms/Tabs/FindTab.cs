@@ -17,18 +17,22 @@ namespace NoAutocar.Views
         {
             InitializeComponent();
             ReloadAutocompletes();
+            DatabaseController.OnUpdate += OnDatabaseUpdate;
         }
 
         public Form Form => this;
 
         public string TabName => "Trouver itinéraire";
 
-        void ReloadAutocompletes() {
-            AutoCompleteStringCollection autoComplete = new AutoCompleteStringCollection();
-            autoComplete.AddRange(DatabaseController.GetAllCities().Select(c => c.Name).ToArray());
+        void ReloadAutocompletes()
+        {
+            fromInput.AutoCompleteCustomSource = DatabaseController.CityAutocomplete;
+            toInput.AutoCompleteCustomSource = DatabaseController.CityAutocomplete;
+        }
 
-            fromInput.AutoCompleteCustomSource = autoComplete;
-            toInput.AutoCompleteCustomSource = autoComplete;
+        void OnDatabaseUpdate(object sender, EventArgs e)
+        {
+            ReloadAutocompletes();
         }
 
         private void FromInput_TextChanged(object sender, EventArgs e)

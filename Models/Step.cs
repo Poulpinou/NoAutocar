@@ -1,7 +1,7 @@
 ﻿namespace NoAutocar.Models
 {
     /// <summary>
-    /// This class stores the properties of a step on a <see cref="Journey"/>
+    /// This class stores the properties of a step on a <see cref="Line"/>
     /// </summary>
     public class Step
     {
@@ -9,7 +9,7 @@
         /// <summary>
         /// The <see cref="City"/> of this <see cref="Step"/>
         /// </summary>
-        public City City { get; private set; }
+        public City City { get; set; }
 
         /// <summary>
         /// The time modification due to this <see cref="Step"/> (in minutes)
@@ -23,7 +23,9 @@
         #endregion
 
         #region Constructors
-        public Step(City city, int timeModification = 30, float costModification = 2) {
+        public Step() { }
+
+        public Step(City city, int timeModification = 30, float costModification = 2) : this() {
             City = city;
             TimeModification = timeModification;
             CostModification = costModification;
