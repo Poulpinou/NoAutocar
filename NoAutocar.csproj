@@ -51,24 +51,54 @@
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Interfaces\ITabable.cs" />
     <Compile Include="Models\Request.cs" />
-    <Compile Include="Views\MainView.cs">
+    <Compile Include="Views\Components\LineDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\LineDisplay.Designer.cs">
+      <DependentUpon>LineDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\StepInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\StepInput.Designer.cs">
+      <DependentUpon>StepInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\MainView.Designer.cs">
+    <Compile Include="Views\Forms\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\City.cs" />
-    <Compile Include="Models\Journey.cs" />
+    <Compile Include="Models\Line.cs" />
     <Compile Include="Models\Step.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Tabs\FindTab.cs">
+    <Compile Include="Views\Forms\Tabs\FindTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Tabs\FindTab.Designer.cs">
+    <Compile Include="Views\Forms\Tabs\FindTab.Designer.cs">
       <DependentUpon>FindTab.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\MainView.resx">
+    <Compile Include="Views\Forms\Tabs\LinesTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\Tabs\LinesTab.Designer.cs">
+      <DependentUpon>LinesTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\Tabs\LineEditorTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\Tabs\LineEditorTab.Designer.cs">
+      <DependentUpon>LineEditorTab.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\Components\LineDisplay.resx">
+      <DependentUpon>LineDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\StepInput.resx">
+      <DependentUpon>StepInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -80,8 +110,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\Tabs\FindTab.resx">
+    <EmbeddedResource Include="Views\Forms\Tabs\FindTab.resx">
       <DependentUpon>FindTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\Tabs\LineEditorTab.resx">
+      <DependentUpon>LineEditorTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\Tabs\LinesTab.resx">
+      <DependentUpon>LinesTab.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

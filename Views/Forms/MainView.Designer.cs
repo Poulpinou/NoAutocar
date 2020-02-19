@@ -47,7 +47,7 @@
             this.ClientSize = new System.Drawing.Size(496, 473);
             this.Controls.Add(this.tabControl);
             this.Name = "MainView";
-            this.Text = "Form1";
+            this.Text = "No Autocar App";
             this.ResumeLayout(false);
 
         }

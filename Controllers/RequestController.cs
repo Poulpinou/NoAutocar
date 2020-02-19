@@ -36,7 +36,7 @@ namespace NoAutocar.Controllers
 
         void RunRequest()
         {
-            List<Journey> journeys = DatabaseController.Datas
+            List<Line> journeys = DatabaseController.Datas
                 .Where(d =>
                     (d.Start == CurrentRequest.start || (!d.OneWay && d.End == CurrentRequest.start))
                     && (d.End == CurrentRequest.end || (!d.OneWay && d.Start == CurrentRequest.end))
