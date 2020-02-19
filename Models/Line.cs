@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Drawing;
 
 namespace NoAutocar.Models
 {
@@ -43,6 +44,11 @@ namespace NoAutocar.Models
         /// The cost from <see cref="End"/> to <see cref="Start"/> without any <see cref="Step"/>
         /// </summary>
         public float BaseCost { get; set; }
+
+        /// <summary>
+        /// The color of the <see cref="Line"/>
+        /// </summary>
+        public Color Color { get; set; } = Color.Yellow;
         #endregion
 
         #region Constructors
@@ -50,18 +56,18 @@ namespace NoAutocar.Models
             Steps = new List<Step>();
         }
 
-        public Line(City start, City end, int time, float cost, bool oneWay = false, params Step[] steps) : this()
+        public Line(string name, City start, City end, int time, float cost, bool oneWay = false, params Step[] steps) : this()
         {
+            Name = name;
             Start = start;
             End = end;
             OneWay = oneWay;
+            BaseTime = time;
+            BaseCost = cost;
             
             Steps.AddRange(steps);
         }
-
-        public Line(City start, City end, int time, float cost, params Step[] steps) : this(start, end, time, cost, false, steps) { }
-
-        public Line(string start, string end, int time, float cost, params Step[] steps) : this(new City(start), new City(end), time, cost, false, steps) { }
+        public Line(string name, string start, string end, int time, float cost, params Step[] steps) : this(name, new City(start), new City(end), time, cost, false, steps) { }
         #endregion
     }
 }

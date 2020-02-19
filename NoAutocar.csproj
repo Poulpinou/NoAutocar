@@ -51,6 +51,12 @@
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Interfaces\ITabable.cs" />
     <Compile Include="Models\Request.cs" />
+    <Compile Include="Views\Components\LineDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\LineDisplay.Designer.cs">
+      <DependentUpon>LineDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\StepInput.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -74,12 +80,21 @@
     <Compile Include="Views\Forms\Tabs\FindTab.Designer.cs">
       <DependentUpon>FindTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\Tabs\LinesTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\Tabs\LinesTab.Designer.cs">
+      <DependentUpon>LinesTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\Tabs\LineEditorTab.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Forms\Tabs\LineEditorTab.Designer.cs">
       <DependentUpon>LineEditorTab.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Components\LineDisplay.resx">
+      <DependentUpon>LineDisplay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\StepInput.resx">
       <DependentUpon>StepInput.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\Tabs\LineEditorTab.resx">
       <DependentUpon>LineEditorTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\Tabs\LinesTab.resx">
+      <DependentUpon>LinesTab.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

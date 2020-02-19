@@ -47,6 +47,8 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.newStepButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.colorInput = new System.Windows.Forms.ColorDialog();
+            this.colorButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.baseTimeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baseCostInput)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -56,7 +58,7 @@
             // 
             this.lineNameInput.Location = new System.Drawing.Point(16, 32);
             this.lineNameInput.Name = "lineNameInput";
-            this.lineNameInput.Size = new System.Drawing.Size(364, 20);
+            this.lineNameInput.Size = new System.Drawing.Size(316, 20);
             this.lineNameInput.TabIndex = 1;
             this.lineNameInput.TextChanged += new System.EventHandler(this.LineNameInput_TextChanged);
             // 
@@ -227,11 +229,25 @@
             this.newStepButton.UseVisualStyleBackColor = true;
             this.newStepButton.Click += new System.EventHandler(this.NewStepButton_Click);
             // 
+            // colorInput
+            // 
+            this.colorInput.Color = System.Drawing.Color.Yellow;
+            // 
+            // colorButton
+            // 
+            this.colorButton.Location = new System.Drawing.Point(338, 32);
+            this.colorButton.Name = "colorButton";
+            this.colorButton.Size = new System.Drawing.Size(20, 20);
+            this.colorButton.TabIndex = 16;
+            this.colorButton.UseVisualStyleBackColor = true;
+            this.colorButton.Click += new System.EventHandler(this.ColorButton_Click);
+            // 
             // LineEditorTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 434);
+            this.Controls.Add(this.colorButton);
             this.Controls.Add(this.newStepButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.confirmButton);
@@ -278,5 +294,7 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button newStepButton;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ColorDialog colorInput;
+        private System.Windows.Forms.Button colorButton;
     }
 }

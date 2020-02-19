@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NoAutocar.Views.Components;
 using NoAutocar.Models;
+using NoAutocar.Controllers;
 
 namespace NoAutocar.Views
 {
@@ -42,7 +43,7 @@ namespace NoAutocar.Views
             set
             {
                 line = value;
-                RefreshDisplay();
+                Refresh();
             }
         }
         #endregion
@@ -64,51 +65,87 @@ namespace NoAutocar.Views
             TabName = "Editer une ligne";
             confirmButton.Text = "Modifier";
             cancelButton.Text = "Annuler";
+            lineNameInput.ReadOnly = true;
             isInEditMode = true;
             Line = line;
         }
         #endregion
 
-        #region Private Methods
-        void RefreshDisplay()
+        #region Public Methods
+        public override void Refresh()
         {
             lineNameInput.Text = Line.Name;
             oneWayInput.Checked = Line.OneWay;
             startCityInput.Text = Line.Start.Name;
+            startCityInput.AutoCompleteCustomSource = DatabaseController.CityAutocomplete;
             endCityInput.Text = Line.End.Name;
+            endCityInput.AutoCompleteCustomSource = DatabaseController.CityAutocomplete;
             baseTimeInput.Value = Line.BaseTime;
             baseCostInput.Value = (decimal)Line.BaseCost;
+            colorButton.BackColor = Line.Color;
 
             stepsPanel.Controls.Clear();
             foreach (Step step in Line.Steps)
             {
                 StepInput stepInput = new StepInput(step);
+                stepInput.OnDelete += OnStepInputDelete;
                 stepInput.Location = new Point(10, stepsPanel.Controls.Count * stepInput.Size.Height);
                 stepsPanel.Controls.Add(stepInput);
+            }
+        }
+        #endregion
+
+        #region Private Method
+        private void OnStepInputDelete(object sender, EventArgs e)
+        {
+            StepInput stepInput = (StepInput)sender;
+            if(stepInput != null)
+            {
+                Line.Steps.Remove(stepInput.Step);
+                Refresh();
             }
         }
 
         private void NewStepButton_Click(object sender, EventArgs e)
         {
             Line.Steps.Add(new Step());
-            RefreshDisplay();
+            Refresh();
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            if (isInEditMode)
+            try
             {
+                if (isInEditMode)
+                {
+                    DatabaseController.Update(Line);
+                }
+                else
+                {
+                    DatabaseController.Insert(Line);
+                }
+                Cancel();
             }
-            else
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
             }
+            
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            Cancel();
+        }
+
+        void Cancel()
+        {
             if (isInEditMode)
             {
-                Parent.Controls.Remove(this);
+                MainView mainView = Form.ActiveForm as MainView;
+                if (mainView != null)
+                    mainView.CloseTab(this);
+                //Parent.Controls.Remove(this);
             }
             else
             {
@@ -144,6 +181,19 @@ namespace NoAutocar.Views
         private void BaseCostInput_ValueChanged(object sender, EventArgs e)
         {
             Line.BaseCost = (float)baseCostInput.Value;
+        }
+
+        private void ColorButton_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.AllowFullOpen = false;
+            colorDialog.ShowHelp = true;
+            colorDialog.Color = Line.Color;
+
+            if (colorDialog.ShowDialog() == DialogResult.OK) { }
+                Line.Color = colorDialog.Color;
+
+            Refresh();
         }
         #endregion
     }

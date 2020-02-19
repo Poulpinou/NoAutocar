@@ -33,5 +33,12 @@
 
         public Step(string city, int timeModification = 30, float costModification = 2) : this(new City(city), timeModification, costModification) { }
         #endregion
+
+        #region Public Methods
+        public override string ToString()
+        {
+            return City.Name;
+        }
+        #endregion
     }
 }

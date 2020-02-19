@@ -34,6 +34,13 @@ namespace NoAutocar.Views.Components
         }
         #endregion
 
+        #region Events
+        /// <summary>
+        /// This event is called when the delete <see cref="Button"/> of this <see cref="Control"/> is clicked
+        /// </summary>
+        public event EventHandler OnDelete;
+        #endregion
+
         #region Constructors
         public StepInput()
         {
@@ -78,7 +85,14 @@ namespace NoAutocar.Views.Components
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            Parent.Controls.Remove(this);
+            if(OnDelete != null)
+            {
+                OnDelete.Invoke(this, null);
+            }
+            else
+            {
+                Parent.Controls.Remove(this);
+            }
         }
         #endregion
     }
