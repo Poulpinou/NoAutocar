@@ -50,6 +50,11 @@
             // timeInput
             // 
             this.timeInput.Location = new System.Drawing.Point(168, 7);
+            this.timeInput.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.timeInput.Name = "timeInput";
             this.timeInput.Size = new System.Drawing.Size(71, 20);
             this.timeInput.TabIndex = 1;
@@ -64,6 +69,11 @@
             0,
             65536});
             this.costInput.Location = new System.Drawing.Point(245, 7);
+            this.costInput.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.costInput.Name = "costInput";
             this.costInput.Size = new System.Drawing.Size(68, 20);
             this.costInput.TabIndex = 2;

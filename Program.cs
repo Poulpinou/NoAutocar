@@ -21,6 +21,8 @@ namespace NoAutocar
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainView());
+
+            //new JourneysController();
         }
     }
 }

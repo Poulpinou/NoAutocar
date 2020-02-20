@@ -46,11 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Interfaces\ITabable.cs" />
-    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Journey.cs" />
     <Compile Include="Views\Components\LineDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
