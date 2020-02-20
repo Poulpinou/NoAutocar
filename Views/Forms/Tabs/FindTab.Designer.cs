@@ -182,6 +182,7 @@
             // 
             // resultsPanel
             // 
+            this.resultsPanel.AutoScroll = true;
             this.resultsPanel.Location = new System.Drawing.Point(6, 13);
             this.resultsPanel.Name = "resultsPanel";
             this.resultsPanel.Size = new System.Drawing.Size(458, 190);

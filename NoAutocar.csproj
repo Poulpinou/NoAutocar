@@ -50,6 +50,12 @@
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Interfaces\ITabable.cs" />
     <Compile Include="Models\Journey.cs" />
+    <Compile Include="Views\Components\JourneyDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\JourneyDisplay.Designer.cs">
+      <DependentUpon>JourneyDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\LineDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     <Compile Include="Views\Forms\Tabs\LineEditorTab.Designer.cs">
       <DependentUpon>LineEditorTab.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Components\JourneyDisplay.resx">
+      <DependentUpon>JourneyDisplay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\LineDisplay.resx">
       <DependentUpon>LineDisplay.cs</DependentUpon>
     </EmbeddedResource>
