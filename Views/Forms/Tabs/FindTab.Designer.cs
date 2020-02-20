@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindTab));
             this.fromInput = new System.Windows.Forms.TextBox();
             this.toInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,9 +43,11 @@
             this.findBW = new System.ComponentModel.BackgroundWorker();
             this.resultsBox = new System.Windows.Forms.GroupBox();
             this.resultsPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.maxTimeInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxCostInput)).BeginInit();
             this.resultsBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // fromInput
@@ -139,9 +142,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(9, 124);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(177, 26);
+            this.label6.Size = new System.Drawing.Size(130, 26);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Vos contraintes";
+            this.label6.Text = "Votre trajet";
             // 
             // label5
             // 
@@ -149,9 +152,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(9, 223);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 26);
+            this.label5.Size = new System.Drawing.Size(100, 26);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Nos solutions";
+            this.label5.Text = "Résultat";
             // 
             // confirmButton
             // 
@@ -188,11 +191,23 @@
             this.resultsPanel.Size = new System.Drawing.Size(458, 190);
             this.resultsPanel.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(120, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 109);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
             // FindTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 473);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.resultsBox);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.label5);
@@ -211,6 +226,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.maxTimeInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxCostInput)).EndInit();
             this.resultsBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +248,6 @@
         private System.ComponentModel.BackgroundWorker findBW;
         private System.Windows.Forms.GroupBox resultsBox;
         private System.Windows.Forms.Panel resultsPanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
