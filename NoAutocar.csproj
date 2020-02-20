@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>NoAutocar.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,11 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Interfaces\ITabable.cs" />
-    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Journey.cs" />
+    <Compile Include="Views\Components\JourneyDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\JourneyDisplay.Designer.cs">
+      <DependentUpon>JourneyDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\LineDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +103,9 @@
     <Compile Include="Views\Forms\Tabs\LineEditorTab.Designer.cs">
       <DependentUpon>LineEditorTab.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Components\JourneyDisplay.resx">
+      <DependentUpon>JourneyDisplay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\LineDisplay.resx">
       <DependentUpon>LineDisplay.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +146,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

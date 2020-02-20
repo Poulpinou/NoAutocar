@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 using NoAutocar.Models;
 
@@ -108,7 +107,56 @@ namespace NoAutocar.Controllers
             datas = new List<Line>();
 
             //TEMP : Fill with default values
-            datas.Add(new Line("Test Line", "Lille", "Paris", 180, 10, new Step("Arras"), new Step("Compiègne")));
+            datas.Add(new Line("Ligne 1", "Lille", "Paris", 180, 10, new Step("Arras"), new Step("Compiègne")));
+
+            datas.Add(new Line()
+                {
+                    Name = "Ligne 2",
+                    Start = new City("Paris"),
+                    End = new City("Lille"),
+                    BaseTime = 120,
+                    BaseCost = 15,
+                    Color = Color.Green,
+                    OneWay = true,
+                    Steps = new List<Step>
+                    {
+                        new Step(){
+                            City = new City("Lomme"),
+                            CostModification = 5,
+                            TimeModification = 20
+                        },
+                        new Step(){
+                            City = new City("Arras"),
+                            CostModification = -3,
+                            TimeModification = 40
+                        },
+                        new Step(){
+                            City = new City("Nantes"),
+                            CostModification = -2,
+                            TimeModification = -20
+                        }
+                    }
+                }
+            );
+
+            datas.Add(new Line()
+                {
+                    Name = "La grande ligne",
+                    Start = new City("Lille"),
+                    End = new City("Madrid"),
+                    BaseTime = 500,
+                    BaseCost = 120,
+                    Color = Color.Red,
+                    Steps = new List<Step>
+                        {
+                            new Step(){
+                                City = new City("Paris"),
+                                CostModification = 0,
+                                TimeModification = 40
+                            }
+                        }
+                }
+            );
 
             UpdateDatabase();
         }

@@ -25,13 +25,13 @@
         #region Constructors
         public Step() { }
 
-        public Step(City city, int timeModification = 30, float costModification = 2) : this() {
+        public Step(City city, int timeModification = 30, float costModification = -2) : this() {
             City = city;
             TimeModification = timeModification;
             CostModification = costModification;
         }
 
-        public Step(string city, int timeModification = 30, float costModification = 2) : this(new City(city), timeModification, costModification) { }
+        public Step(string city, int timeModification = 30, float costModification = -2) : this(new City(city), timeModification, costModification) { }
         #endregion
 
         #region Public Methods
